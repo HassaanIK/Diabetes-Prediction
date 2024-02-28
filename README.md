@@ -1,5 +1,4 @@
 # Diabetes Prediction
---
 ## OVERVIEW
 This project is a Flask web application that classifies if the person is diabetic or non-diabetic on given some input features. It uses a machine learning model trained on features like glucose, BMI and age to make predictions. The user inputs these features into forms on the web app, and the app returns if the person is diabetic or not.
 
