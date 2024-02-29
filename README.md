@@ -1,38 +1,30 @@
-# Diabetes Prediction
-## OVERVIEW
-This project is a Flask web application that classifies if the person is diabetic or non-diabetic on given some input features. It uses a machine learning model trained on features like glucose, BMI and age to make predictions. The user inputs these features into forms on the web app, and the app returns if the person is diabetic or not.
+# Diabetes Prediction Web App
 
-## SPECIFICATIONS
-- The data used for training is taken from Kaggle. It has 8 different features out of which 3 are used.
-- The preprocessing done on this data is sampling and removal of outliers.
-- The features are normalized using StandardScaler from scikit learn library.
-- The machine learning algorithm used is Random Forest Classifier as it was giving the best accuracy out of all.
-- The metrics used for evaluation is accuracy, 78.67% of which is achieved.
-- Trying deep learning on a complex architecture having 7 layers and 25k params gave about 80% accuracy.
-- I used Pytorch as it feels interesting to use.
-- The project uses Flask, a lightweight web framework for Python, to create the web application.
-- The input features are normalized before being fed into the model for prediction.
-  
-## USAGE
-```python
-def predict_diabetes(glucose, bmi, age, model, scaler):
+### Overview
+This project aims to create a web application that predicts the likelihood of an individual being diabetic based on their glucose level, BMI, and age. The application uses a machine learning model trained on the Random Forest algorithm.
 
+### Steps
+- Data Preprocessing: The dataset is preprocessed to remove outliers and features not relevant to the prediction (Pregnancies, BloodPressure, SkinThickness, Insulin, DiabetesPedigreeFunction).
+- Feature Engineering: Features are extracted and split into input features (glucose, BMI, age) and target feature (Outcome).
+- Data Balancing: The dataset is balanced using the Synthetic Minority Over-sampling Technique (`SMOTE`) to address class imbalance.
+- Normalization: Input features are normalized using the `StandardScaler` to ensure consistent scaling across features.
+- Model Training: The `RandomForestClassifier` is trained on the preprocessed and normalized data to predict the likelihood of an individual being diabetic.
+- Web App Development: The Flask framework is used to develop a web application that takes input from users (glucose, BMI, age), uses the trained model to make predictions, and displays the results.
 
-    # Normalize the input features
-    input_features = [[glucose, bmi, age]]
-    input_features_norm = scaler.fit_transform(input_features)
+### Techniques Used
+- Machine Learning:  `Random Forest Classifier`
+- Data Preprocessing: Outlier removal, feature selection, data balancing
+- Normalization: `StandardScaler`
+- Web Development: `Flask`
 
+### Prediction
+`predict_diabetes(glucose, bmi, age)`: Function that takes glucose, BMI, and age as input, normalizes the input features, and returns the prediction and probability of being diabetic.
 
-    # Make predictions
-    prediction = model.predict(input_features_norm)[0]
-    prediction_probability = model.predict_proba(input_features_norm)[0]
+### Usage
+- Clone the repository.
+- Install the required libraries `pip install -r requirements.txt`.
+- Run `app.py`.
+- Access the web application in a browser.
 
-
-    if prediction == 0:
-        result = "Non-Diabetic"
-    else:
-        result = "Diabetic"
-
-
-    return result, prediction_probability
-predict_diabetes(120, 30, 45, model, scaler)
+### Web App
+![Screenshot (26)](https://github.com/HassaanIK/Diabetes-Prediction/assets/139614780/580c6192-fba5-494d-a321-691ac61e2ecc)
