@@ -4,6 +4,7 @@
 This project aims to create a web application that predicts the likelihood of an individual being diabetic based on their glucose level, BMI, and age. The application uses a machine learning model trained on the Random Forest algorithm.
 
 ### Steps
+- Data Collection: The data used for this project is taken from [Kaggle](https://www.kaggle.com/datasets/akshaydattatraykhare/diabetes-dataset).
 - Data Preprocessing: The dataset is preprocessed to remove outliers and features not relevant to the prediction (Pregnancies, BloodPressure, SkinThickness, Insulin, DiabetesPedigreeFunction).
 - Feature Engineering: Features are extracted and split into input features (glucose, BMI, age) and target feature (Outcome).
 - Data Balancing: The dataset is balanced using the Synthetic Minority Over-sampling Technique (`SMOTE`) to address class imbalance.
